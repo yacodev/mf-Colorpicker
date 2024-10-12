@@ -9,7 +9,10 @@ const printCompilationMessage = require('./compilation.config.js');
 
 module.exports = (_, argv) => ({
   output: {
-    publicPath: 'http://localhost:3001/',
+    publicPath:
+      argv.mode === 'development'
+        ? 'http://localhost:3001/'
+        : 'https://mf-colorlist.vercel.app/',
   },
 
   resolve: {
